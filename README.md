@@ -4,7 +4,7 @@
 
 **Final-year CS student &nbsp;·&nbsp; Software & Cloud Engineer &nbsp;·&nbsp; Qatar-bound**
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/api?font=Fira+Code&size=15&pause=1200&color=0D9488&center=true&vCenter=true&repeat=true&width=480&lines=Python+%7C+Java+%7C+Rust+%7C+Solidity;Flask+%7C+PyQt6+%7C+Next.js+%7C+Docker;AWS+re%2FStart+%E2%80%94+in+progress;SE+%26+Cloud+Engineer+%7C+Qatar)](https://github.com/Mak-beth)
+`Python · Java · Rust · Solidity · Flask · PyQt6 · Next.js · Docker · AWS re/Start in progress`
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mak2025-0D9488?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/mak2025)
 &nbsp;
