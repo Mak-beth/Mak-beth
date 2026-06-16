@@ -125,7 +125,7 @@ Distributed Human Resource Management system in **Java RMI**, demonstrating mult
 
 <br/>
 
-![Pac-Man contribution graph](https://raw.githubusercontent.com/Mak-beth/Mak-beth/output/github-contribution.svg)
+![Pac-Man contribution graph](https://raw.githubusercontent.com/Mak-beth/Mak-beth/output/pacman-contribution-graph.svg)
 
 </div>
 

@@ -29,10 +29,10 @@ jobs:
 
       # --- Pac-Man ---
       - name: Generate Pac-Man contribution graph
-        uses: abozanona/pacman-contribution-graph@v1.0.0
+        uses: abozanona/pacman-contribution-graph@v5.0.0
         with:
-          github-user-name: Mak-beth
-          outputs: dist/github-contribution.svg
+          github_user_name: Mak-beth
+          games: 'pacman'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
