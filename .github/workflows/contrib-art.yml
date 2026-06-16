@@ -1,0 +1,47 @@
+name: Contribution Art
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # 04:00 UTC daily
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create output staging directory
+        run: mkdir -p dist
+
+      # --- Snake ---
+      - name: Generate contribution snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: Mak-beth
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      # --- Pac-Man ---
+      - name: Generate Pac-Man contribution graph
+        uses: abozanona/pacman-contribution-graph@v1.0.0
+        with:
+          github-user-name: Mak-beth
+          outputs: dist/github-contribution.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # --- Push both to the output branch ---
+      - name: Deploy SVGs to output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
