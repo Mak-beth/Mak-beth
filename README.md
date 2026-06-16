@@ -18,7 +18,11 @@
 
 ## About
 
-Final-year BSc Computer Science student at Asia Pacific University, Kuala Lumpur, graduating 2026. Originally from Al Khor, Qatar — returning there after graduation to pursue **Software Engineer** and **Cloud Engineer** roles (remote as a secondary option; QID holder). Currently working toward AWS re/Start Qatar certification. My background includes an IT/Software internship at Joget Technology Sdn. Bhd. and a year as Technical Assistant at APU (Dec 2022 – Dec 2023).
+Final-year Computer Science graduate with 10 months of hands-on software engineering experience across enterprise application development and cybersecurity. I've worked in Malaysia's low-code SaaS industry at Joget Technology, building production Java plugins, integrating enterprise databases, and shipping to a live marketplace. My core strengths are backend development, Python, Java, REST API design, Docker, and real-time systems, with a growing focus on cloud engineering.
+
+I got into software engineering because I wanted to build things that actually run in production, not just in theory. My final year project, CyberMon, is a real desktop SIEM alternative with 142 passing tests, live log ingestion, and a risk scoring engine, built end to end by me. That drive to ship complete, tested, documented software is what I bring to every project. I'm currently pursuing cloud certifications to deepen my infrastructure skills and transition into cloud engineering roles.
+
+Outside of work I'm into gaming, following the tech industry, and exploring whatever new tool or language catches my eye — that's how Rust ended up in my portfolio. I'm based in Qatar, grew up here, and I'm genuinely excited to build my career in the region I call home.
 
 ---
 
