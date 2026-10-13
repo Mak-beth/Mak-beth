@@ -2,9 +2,15 @@
 
 # Mak &nbsp;🦕
 
-**Final-year CS student &nbsp;·&nbsp; Software & Cloud Engineer &nbsp;·&nbsp; Qatar-bound**
+**Computer Science graduate &nbsp;·&nbsp; Software & Cloud Engineer &nbsp;·&nbsp; Al Khor, Qatar**
 
-`Python · Java · Rust · Solidity · Flask · PyQt6 · Next.js · Docker · AWS re/Start in progress`
+`Python · Java · Rust · TypeScript · AWS Lambda · FastAPI · Flask · Docker`
+
+![Based in Qatar](https://img.shields.io/badge/Based_in-Qatar-0D9488?style=flat)
+&nbsp;
+![Valid QID](https://img.shields.io/badge/Valid_QID-no_relocation_needed-0D9488?style=flat)
+&nbsp;
+![Open to work](https://img.shields.io/badge/Open_to-SE_%26_Cloud_roles-F59E0B?style=flat)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mak2025-0D9488?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/mak2025)
 &nbsp;
@@ -18,57 +24,81 @@
 
 ## About
 
-Final-year Computer Science graduate with 10 months of hands-on software engineering experience across enterprise application development and cybersecurity. I've worked in Malaysia's low-code SaaS industry at Joget Technology, building production Java plugins, integrating enterprise databases, and shipping to a live marketplace. My core strengths are backend development, Python, Java, REST API design, Docker, and real-time systems, with a growing focus on cloud engineering.
+Computer Science graduate (Asia Pacific University, 2026) with production engineering experience and hands-on AWS delivery. I spent five months as a Software Engineering Intern at Joget Technology in Malaysia, shipping three production Java plugins to a live enterprise marketplace, cutting one codebase by ~40% through consolidating duplicate class logic, and integrating the platform with four enterprise databases under Docker. My core strengths are backend development, Python, Java, REST API design, and serverless architecture on AWS.
 
-I got into software engineering because I wanted to build things that actually run in production, not just in theory. My final year project, CyberMon, is a real desktop SIEM alternative with 142 passing tests, live log ingestion, and a risk scoring engine, built end to end by me. That drive to ship complete, tested, documented software is what I bring to every project. I'm currently pursuing cloud certifications to deepen my infrastructure skills and transition into cloud engineering roles.
+I got into software engineering because I wanted to build things that actually run in production, not just in theory. CyberMon is the clearest example — an 11,000+ line desktop SIEM alternative with a config-driven risk scoring engine, a client-server agent mode, and 318 passing tests at 13,400 events/second with zero false positives, built end to end by me. More recently I deployed a 13-endpoint serverless REST API on Lambda, API Gateway and RDS, which is where my focus is heading next. That drive to ship complete, tested, documented software is what I bring to every project.
 
-Outside of work I'm into gaming, following the tech industry, and exploring whatever new tool or language catches my eye — that's how Rust ended up in my portfolio. I'm based in Qatar, grew up here, and I'm genuinely excited to build my career in the region I call home.
+Outside of work I'm into gaming, following the tech industry, and exploring whatever new tool or language catches my eye — that's how Rust ended up in my portfolio. I'm based in Al Khor, Qatar, I grew up here, and I'm genuinely excited to build my career in the region I call home. Valid QID, immediately available, no visa or relocation required.
 
 ---
 
 ## Fossil Record
 
 <details>
-<summary><strong>🛡️ CyberMon v2.0 &nbsp;—&nbsp; Final Year Project</strong></summary>
+<summary><strong>☁️ Accessibility Accommodation Portal &nbsp;—&nbsp; Serverless AWS Application</strong></summary>
 <br>
 
-A desktop SIEM alternative written in **Python / Flask / PyQt6**. Ingests Linux auth logs and web-server logs, scores every event through a likelihood × impact risk matrix, and persists findings to SQLite for querying and visualization. Ships with **142 passing tests**.
+A serverless accommodation-request platform built end to end on AWS. Deployed a **13-endpoint REST API** on **Lambda** behind **API Gateway**, backed by **Amazon RDS for MySQL** through SQLAlchemy ORM.
 
-Designed for small-to-medium deployments that can't justify a commercial SIEM license — a real gap in regional SMB security.
+File traffic is kept off the API tier entirely — browsers upload directly to **S3** via pre-signed URLs issued by a dedicated Lambda endpoint. The data model is a 4-table schema with UUID keys, enum-constrained roles, and an allocation guard that blocks duplicate budget disbursement.
 
-**Stack:** Python · Flask · PyQt6 · SQLite · pytest
+The frontend is a **React 19** single-page app with role-scoped dashboards for four distinct user types (student, faculty, finance, admin), driven by the same role model enforced server-side.
 
-[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/CyberMon)
+**Stack:** AWS Lambda · API Gateway · RDS (MySQL) · S3 · FastAPI · SQLAlchemy · React 19 · Vite · Tailwind CSS
+
+[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/Accessibility-Accommodation-Portal-)
 
 </details>
 
 <details>
-<summary><strong>⚙️ RTS Wiki Pipeline</strong></summary>
+<summary><strong>🛡️ CyberMon &nbsp;—&nbsp; Desktop Security Monitoring Platform</strong></summary>
 <br>
 
-A data pipeline written in **Rust** that scrapes, transforms, and loads RTS (real-time strategy) wiki data. Built to practice systems-level performance and Rust's ownership model in a real workload.
+An **11,000+ line** desktop SIEM alternative covering Linux syslog, Windows OpenSSH and Apache logs. Three detection rules feed a config-driven **1–25 likelihood × impact** scoring engine, with findings persisted to SQLite for querying and visualization.
 
-[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/rts-wiki-pipeline)
+Also runs in **client-server mode**: remote agents POST log batches to a Flask endpoint secured by `X-API-Key` auth, and detection state carries across batches — so a slow brute-force spread thin over hours still gets caught.
+
+Benchmarked at **13,400 events/second** on real LogHub data with **318 passing pytest tests** and zero false positives. Ships as two self-contained Windows executables via PyInstaller.
+
+**Stack:** Python 3.12 · PyQt6 · PyQtGraph · Flask · SQLite · pandas · pytest · PyInstaller
+
+[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/Cybermon)
 
 </details>
 
 <details>
-<summary><strong>🔗 Decentralized Marketplace dApp</strong></summary>
+<summary><strong>⚙️ RTS Wiki Pipeline &nbsp;—&nbsp; Real-Time Stream Processor</strong></summary>
 <br>
 
-Full-stack decentralized marketplace: **Solidity** smart contracts deployed via **Hardhat**, **Next.js** frontend, wallet integration. Covers ERC-20 interactions, listing/buying flows, and on-chain ownership.
+A dual-architecture **Rust** pipeline consuming live Wikimedia SSE streams, built to compare async (**Tokio**) against threaded concurrency on identical workloads. Uses zero-copy parsing and a custom allocator achieving **≥95% zero-allocation per event**, benchmarked with Criterion.
 
-[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/decentralized-marketplace)
+**Stack:** Rust · Tokio · Crossbeam · Criterion
+
+[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/RTS_Wiki_Pipeline)
 
 </details>
 
 <details>
-<summary><strong>🏢 CrestHRM</strong></summary>
+<summary><strong>🔗 Decentralized Marketplace &nbsp;—&nbsp; Blockchain Web Application</strong></summary>
 <br>
 
-Distributed Human Resource Management system in **Java RMI**, demonstrating multi-node communication, remote method invocation, and distributed state management.
+**Solidity** smart contracts deployed via Hardhat to a local Ethereum testnet, with a **Next.js / TypeScript** frontend and MetaMask wallet integration covering listing and purchase flows.
 
-[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/CrestHRM)
+**Stack:** Solidity · Hardhat · Next.js · TypeScript
+
+[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/BC_DAPP)
+
+</details>
+
+<details>
+<summary><strong>🏢 CrestHRM &nbsp;—&nbsp; Distributed HR Management System</strong></summary>
+<br>
+
+A distributed Human Resource Management system architected in **Java RMI**, with remote method invocation across nodes and fault-tolerant service design.
+
+**Stack:** Java · RMI
+
+[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/CrestHRMSystem)
 
 </details>
 
@@ -81,25 +111,45 @@ Distributed Human Resource Management system in **Java RMI**, demonstrating mult
 ![Python](https://img.shields.io/badge/Python-0D9488?style=flat&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-0D9488?style=flat&logo=openjdk&logoColor=white)
 ![Rust](https://img.shields.io/badge/Rust-0D9488?style=flat&logo=rust&logoColor=white)
-![Solidity](https://img.shields.io/badge/Solidity-0D9488?style=flat&logo=solidity&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-0D9488?style=flat&logo=javascript&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-0D9488?style=flat&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-0D9488?style=flat&logo=javascript&logoColor=white)
+![Solidity](https://img.shields.io/badge/Solidity-0D9488?style=flat&logo=solidity&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-0D9488?style=flat&logo=postgresql&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-0D9488?style=flat&logo=gnubash&logoColor=white)
 
-**Frameworks & Libraries**
+**Web, API & Frameworks**
 
+![FastAPI](https://img.shields.io/badge/FastAPI-0D9488?style=flat&logo=fastapi&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-0D9488?style=flat&logo=flask&logoColor=white)
-![PyQt6](https://img.shields.io/badge/PyQt6-0D9488?style=flat&logo=qt&logoColor=white)
+![React](https://img.shields.io/badge/React-0D9488?style=flat&logo=react&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-0D9488?style=flat&logo=nextdotjs&logoColor=white)
-![Hardhat](https://img.shields.io/badge/Hardhat-0D9488?style=flat&logo=ethereum&logoColor=white)
+![PyQt6](https://img.shields.io/badge/PyQt6-0D9488?style=flat&logo=qt&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-0D9488?style=flat&logo=tailwindcss&logoColor=white)
 
-**Cloud & Tooling**
+**Cloud & DevOps**
 
-![AWS](https://img.shields.io/badge/AWS-re%2FStart_in_progress-F59E0B?style=flat&logo=amazonaws&logoColor=white)
+![AWS Lambda](https://img.shields.io/badge/AWS_Lambda-0D9488?style=flat&logo=awslambda&logoColor=white)
+![API Gateway](https://img.shields.io/badge/API_Gateway-0D9488?style=flat&logo=amazonapigateway&logoColor=white)
+![Amazon RDS](https://img.shields.io/badge/Amazon_RDS-0D9488?style=flat&logo=amazonrds&logoColor=white)
+![Amazon S3](https://img.shields.io/badge/Amazon_S3-0D9488?style=flat&logo=amazons3&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-0D9488?style=flat&logo=docker&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-0D9488?style=flat&logo=linux&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-0D9488?style=flat&logo=git&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-0D9488?style=flat&logo=sqlite&logoColor=white)
+
+**Databases**
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0D9488?style=flat&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-0D9488?style=flat&logo=mysql&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-0D9488?style=flat&logo=mariadb&logoColor=white)
+![Oracle](https://img.shields.io/badge/Oracle-0D9488?style=flat&logo=oracle&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-0D9488?style=flat&logo=sqlite&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-0D9488?style=flat&logo=sqlalchemy&logoColor=white)
+
+**Certifications**
+
+![Rocheston](https://img.shields.io/badge/Rocheston_Cybersecurity_L1-earned_2024-0D9488?style=flat&logo=shieldsdotio&logoColor=white)
+&nbsp;
+![AWS CLF-C02](https://img.shields.io/badge/AWS_Cloud_Practitioner-in_progress-F59E0B?style=flat&logo=amazonwebservices&logoColor=white)
 
 ---
 
