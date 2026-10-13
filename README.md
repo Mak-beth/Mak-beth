@@ -46,7 +46,7 @@ The frontend is a **React 19** single-page app with role-scoped dashboards for f
 
 **Stack:** AWS Lambda · API Gateway · RDS (MySQL) · S3 · FastAPI · SQLAlchemy · React 19 · Vite · Tailwind CSS
 
-[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/Accessibility-Accommodation-Portal-)
+[![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/Accessibility-Accommodation-Portal)
 
 </details>
 
@@ -70,21 +70,29 @@ Benchmarked at **13,400 events/second** on real LogHub data with **318 passing p
 <summary><strong>⚙️ RTS Wiki Pipeline &nbsp;—&nbsp; Real-Time Stream Processor</strong></summary>
 <br>
 
-A dual-architecture **Rust** pipeline consuming live Wikimedia SSE streams, built to compare async (**Tokio**) against threaded concurrency on identical workloads. Uses zero-copy parsing and a custom allocator achieving **≥95% zero-allocation per event**, benchmarked with Criterion.
+Two complete **Rust** pipelines over live Wikimedia SSE streams — one async (**Tokio**), one threaded — sharing an identical parser, priority router, and leaderboard so the comparison isolates the execution model. Monitored against a 2 ms soft deadline.
 
-**Stack:** Rust · Tokio · Crossbeam · Criterion
+The finding is that neither wins outright. Async takes live load (human p99 **627 µs** vs 1,231 µs), but threaded wins under stress by **34.9×** (1,802 µs vs 62,815 µs) because a busy-spinning task starves the Tokio worker it occupies. The p50 hides this completely — async stayed at 105 µs while its tail hit 62 ms.
+
+Zero-copy parsing verified by allocation audit: **2,728 of 2,728 parse calls with zero heap allocations**, 2.08× faster than owned parsing.
+
+**Stack:** Rust · Tokio · Crossbeam · parking_lot · DashMap · Criterion
 
 [![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/RTS_Wiki_Pipeline)
 
 </details>
 
 <details>
-<summary><strong>🔗 Decentralized Marketplace &nbsp;—&nbsp; Blockchain Web Application</strong></summary>
+<summary><strong>🔗 Supply Chain DApp &nbsp;—&nbsp; Blockchain Traceability Platform</strong></summary>
 <br>
 
-**Solidity** smart contracts deployed via Hardhat to a local Ethereum testnet, with a **Next.js / TypeScript** frontend and MetaMask wallet integration covering listing and purchase flows.
+A role-based supply chain platform recording a product's full journey from manufacture to final sale on-chain. Anyone can verify authenticity by scanning a QR code — **no crypto wallet required** for public verification.
 
-**Stack:** Solidity · Hardhat · Next.js · TypeScript
+**Solidity 0.8.20** contracts on a local Hardhat node, with a **Next.js 14 / TypeScript** frontend and MetaMask integration. Five distinct roles (manufacturer, distributor, retailer, regulator, public) with MySQL-backed audit logging and IPFS certificate storage.
+
+Covers ownership transfers, lifecycle status updates, IoT sensor readings, product recalls, and CSV-exportable audit trails.
+
+**Stack:** Solidity · Hardhat · Next.js 14 · TypeScript · MySQL · IPFS (Kubo) · MetaMask
 
 [![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/BC_DAPP)
 
@@ -94,9 +102,11 @@ A dual-architecture **Rust** pipeline consuming live Wikimedia SSE streams, buil
 <summary><strong>🏢 CrestHRM &nbsp;—&nbsp; Distributed HR Management System</strong></summary>
 <br>
 
-A distributed Human Resource Management system architected in **Java RMI**, with remote method invocation across nodes and fault-tolerant service design.
+A three-tier **Java RMI** application replacing a paper-and-spreadsheet leave process with one authoritative record served over **TLS**. A 16-method typed remote contract hands leave evaluation to a fixed worker pool, so the client call returns immediately while the decision runs in the background.
 
-**Stack:** Java · RMI
+Concurrency is guarded at two layers: `synchronized` mutating methods prevent interleaved writes, while the balance deduction is arbitrated at the SQL layer by a `WHERE balance >= requested` clause.
+
+**Stack:** Java · Java RMI · JDBC · Apache Derby · TLS/SSL · ExecutorService
 
 [![Repo](https://img.shields.io/badge/View_Repo-0D9488?style=flat&logo=github&logoColor=white)](https://github.com/Mak-beth/CrestHRMSystem)
 
